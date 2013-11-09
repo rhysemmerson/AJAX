@@ -21,6 +21,22 @@
     };
 })(jQuery);
 
+(function($){
+    /*
+     * TODO: refactor this, it's only a temp solution
+     */
+    $.union = function(array1, array2) {
+        var hash = {}, union = [];
+        $.each($.merge($.merge([], array1), array2), function (index, value) {
+            hash[value] = value;
+        });
+        $.each(hash, function (key, value) {
+            union.push(key);
+        } );
+        return union;
+    };
+})(jQuery);
+
 /**
  * Ajax core :
  *  DOM updating
